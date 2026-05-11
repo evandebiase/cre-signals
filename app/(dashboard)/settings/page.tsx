@@ -1,13 +1,13 @@
 'use client';
 
 import { useUser } from '@clerk/nextjs';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { PLANS } from '@/lib/stripe/client';
 
 type WatchlistItem = { id: string; zip_code: string; label: string | null; alert_threshold: number };
 
-export default function SettingsPage() {
+function SettingsContent() {
   const { user } = useUser();
   const searchParams = useSearchParams();
   const upgraded = searchParams.get('upgraded');
@@ -190,5 +190,13 @@ export default function SettingsPage() {
         </p>
       </section>
     </div>
+  );
+}
+
+export default function SettingsPage() {
+  return (
+    <Suspense>
+      <SettingsContent />
+    </Suspense>
   );
 }
