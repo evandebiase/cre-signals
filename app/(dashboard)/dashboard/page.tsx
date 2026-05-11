@@ -1,6 +1,6 @@
 import { SignalFeed } from '@/components/dashboard/SignalFeed';
 
-export const metadata = { title: 'Signal Feed — CRE Signals' };
+export const metadata = { title: 'Signal Feed — CRE Data' };
 
 export default function DashboardPage() {
   return (

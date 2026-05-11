@@ -19,9 +19,16 @@ export function MarketNarrative({ zip }: Props) {
         body: JSON.stringify({ zip }),
       });
       const data = await res.json();
-      setNarrative(data.narrative);
+      if (!res.ok) {
+        const msg = data.error === 'AI service not configured'
+          ? 'AI narrative requires an Anthropic API key — add ANTHROPIC_API_KEY in Vercel settings.'
+          : (data.error ?? 'Failed to generate narrative.');
+        setError(msg);
+        return;
+      }
+      setNarrative(data.narrative ?? null);
     } catch {
-      setError('Failed to generate narrative. Please try again.');
+      setError('Network error — please try again.');
     } finally {
       setLoading(false);
     }
@@ -45,9 +52,9 @@ export function MarketNarrative({ zip }: Props) {
 
   if (error) {
     return (
-      <div className="flex flex-col items-center gap-3 py-6 text-center">
+      <div className="flex flex-col items-start gap-3 py-4">
         <p className="text-slate-500 text-sm">{error}</p>
-        <button onClick={load} className="text-teal-400 text-sm hover:text-teal-300">
+        <button onClick={load} className="text-teal-400 text-sm hover:text-teal-300 transition-colors">
           Retry
         </button>
       </div>

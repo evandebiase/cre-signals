@@ -103,7 +103,7 @@ export function ChatInterface() {
       {/* Header */}
       <div className="flex items-center gap-3 px-6 py-4 border-b border-navy-700">
         <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
-        <span className="font-medium text-slate-200">CRE Signals AI Analyst</span>
+        <span className="font-medium text-slate-200">CRE Data AI Analyst</span>
         <span className="text-xs text-slate-500 ml-auto">Powered by Claude</span>
       </div>
 

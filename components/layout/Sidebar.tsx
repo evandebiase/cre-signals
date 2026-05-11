@@ -60,7 +60,7 @@ export function Sidebar() {
           <div className="w-7 h-7 rounded-lg bg-teal-400/20 flex items-center justify-center">
             <span className="text-teal-400 text-sm font-bold">C</span>
           </div>
-          <span className="font-bold text-slate-100 text-sm">CRE Signals</span>
+          <span className="font-bold text-slate-100 text-sm">CRE Data</span>
         </div>
         <div className="flex items-center gap-2">
           <ThemeToggle />
@@ -94,7 +94,7 @@ export function Sidebar() {
               <span className="text-teal-400 text-sm font-bold">C</span>
             </div>
             <div>
-              <div className="font-bold text-slate-100 text-sm leading-none">CRE Signals</div>
+              <div className="font-bold text-slate-100 text-sm leading-none">CRE Data</div>
               <div className="text-slate-600 text-xs mt-0.5">Market Intelligence</div>
             </div>
           </div>
@@ -119,7 +119,7 @@ export function Sidebar() {
               <span className="text-teal-400 text-sm font-bold">C</span>
             </div>
             <div>
-              <div className="font-bold text-slate-100 text-sm leading-none">CRE Signals</div>
+              <div className="font-bold text-slate-100 text-sm leading-none">CRE Data</div>
               <div className="text-slate-600 text-xs mt-0.5">Market Intelligence</div>
             </div>
           </div>

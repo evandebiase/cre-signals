@@ -1,6 +1,6 @@
 import { ChatInterface } from '@/components/chat/ChatInterface';
 
-export const metadata = { title: 'AI Analyst — CRE Signals' };
+export const metadata = { title: 'AI Analyst — CRE Data' };
 
 export default function ChatPage() {
   return (

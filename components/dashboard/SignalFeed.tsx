@@ -57,8 +57,8 @@ export function SignalFeed() {
 
   return (
     <div className="space-y-3">
-      {signals.map(signal => (
-        <SignalCard key={signal.id} signal={signal} />
+      {signals.map((signal, i) => (
+        <SignalCard key={signal.id} signal={signal} defaultExpanded={i === 0} />
       ))}
     </div>
   );

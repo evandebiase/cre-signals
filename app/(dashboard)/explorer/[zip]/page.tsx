@@ -9,7 +9,7 @@ import { getSignalHistoryForZip, getPermitsByZip } from '@/lib/db/queries';
 type Props = { params: { zip: string } };
 
 export async function generateMetadata({ params }: Props) {
-  return { title: `${params.zip} Market Intelligence — CRE Signals` };
+  return { title: `${params.zip} Market Intelligence — CRE Data` };
 }
 
 export default async function ZipExplorerPage({ params }: Props) {

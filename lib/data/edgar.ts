@@ -22,7 +22,7 @@ export async function searchLeaseExpirations(_query?: string): Promise<EdgarLeas
     const url = new URL('https://efts.sec.gov/LATEST/search-index?q=%22lease+expires%22&dateRange=custom&startdt=2024-01-01&enddt=2025-12-31&forms=10-K');
 
     const res = await fetch(url.toString(), {
-      headers: { 'User-Agent': 'CRE Signals Platform contact@cresignals.com' },
+      headers: { 'User-Agent': 'CRE Data Platform contact@credata.co' },
     });
     if (!res.ok) return [];
 
@@ -56,7 +56,7 @@ export async function fetchCompany10K(cik: string): Promise<string | null> {
     const url = `${EDGAR_API}/submissions/CIK${paddedCik}.json`;
 
     const res = await fetch(url, {
-      headers: { 'User-Agent': 'CRE Signals Platform contact@cresignals.com' },
+      headers: { 'User-Agent': 'CRE Data Platform contact@credata.co' },
     });
     if (!res.ok) return null;
 

@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   const zipCodes = watchlist.map(w => w.zip_code);
   const signals = zipCodes.length > 0 ? await getLatestSignalsByZips(zipCodes) : [];
 
-  const systemPrompt = `You are CRE Signals AI, an expert commercial real estate analyst.
+  const systemPrompt = `You are CRE Data AI, an expert commercial real estate analyst.
 You have access to live market data for the user's watched zip codes.
 Current data context:
 ${JSON.stringify({ watchlist, signals }, null, 2)}

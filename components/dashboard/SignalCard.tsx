@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 
 type Props = {
   signal: ZipSignal;
+  defaultExpanded?: boolean;
 };
 
 const SIGNAL_TYPE_ICONS: Record<string, string> = {
@@ -18,8 +19,8 @@ const SIGNAL_TYPE_ICONS: Record<string, string> = {
   composite: '📊',
 };
 
-export function SignalCard({ signal }: Props) {
-  const [expanded, setExpanded] = useState(false);
+export function SignalCard({ signal, defaultExpanded = false }: Props) {
+  const [expanded, setExpanded] = useState(defaultExpanded);
   const band = getBand(signal.signal_score);
 
   const borderColor = {

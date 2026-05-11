@@ -12,8 +12,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid zip code' }, { status: 400 });
   }
 
-  const signals = await getSignalHistoryForZip(zip, 90);
-  const narrative = await generateMarketNarrative(zip, { signals });
-
-  return NextResponse.json({ narrative });
+  try {
+    const signals = await getSignalHistoryForZip(zip, 90);
+    const narrative = await generateMarketNarrative(zip, { signals });
+    return NextResponse.json({ narrative });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    const isKeyError = message.includes('ANTHROPIC_API_KEY') || message.includes('auth');
+    return NextResponse.json(
+      { error: isKeyError ? 'AI service not configured' : 'Failed to generate narrative', detail: message },
+      { status: 500 }
+    );
+  }
 }

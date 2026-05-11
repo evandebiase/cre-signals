@@ -4,7 +4,7 @@ import { PlanGate } from '@/components/ui/PlanGate';
 
 export const dynamic = 'force-dynamic';
 
-export const metadata = { title: 'Lease Expiration Radar — CRE Signals' };
+export const metadata = { title: 'Lease Expiration Radar — CRE Data' };
 
 export default async function LeasesPage() {
   const leases = await getAllUpcomingLeases();
