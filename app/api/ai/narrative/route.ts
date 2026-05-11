@@ -17,8 +17,9 @@ export async function POST(req: NextRequest) {
     const narrative = await generateMarketNarrative(zip, { signals });
     return NextResponse.json({ narrative });
   } catch (err) {
-    const message = err instanceof Error ? err.message : 'Unknown error';
-    const isKeyError = message.includes('ANTHROPIC_API_KEY') || message.includes('auth');
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('[narrative] error:', message);
+    const isKeyError = message.includes('ANTHROPIC_API_KEY') || message.includes('authentication') || message.includes('401');
     return NextResponse.json(
       { error: isKeyError ? 'AI service not configured' : 'Failed to generate narrative', detail: message },
       { status: 500 }

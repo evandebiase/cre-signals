@@ -1,11 +1,10 @@
-import { anthropic, MODEL } from './claude';
+import { getAnthropic, MODEL } from './claude';
 import { getLatestNarrative, insertNarrative } from '../db/queries';
 
 export async function generateMarketNarrative(
   zip: string,
   signalData: Record<string, unknown>
 ): Promise<string> {
-  // Check cache first
   const cached = await getLatestNarrative(zip);
   if (cached) return cached.narrative;
 
@@ -19,7 +18,7 @@ Paragraph 3: Who should be paying attention and why (actionable)
 
 Tone: Professional, direct, data-driven. No fluff.`;
 
-  const message = await anthropic.messages.create({
+  const message = await getAnthropic().messages.create({
     model: MODEL,
     max_tokens: 1024,
     messages: [{ role: 'user', content: prompt }],
@@ -27,7 +26,12 @@ Tone: Professional, direct, data-driven. No fluff.`;
 
   const narrative = message.content[0].type === 'text' ? message.content[0].text : '';
 
-  await insertNarrative(zip, narrative, signalData);
+  // Best-effort cache — don't let DB failure kill the response
+  try {
+    await insertNarrative(zip, narrative, signalData);
+  } catch (e) {
+    console.error('insertNarrative failed:', e);
+  }
 
   return narrative;
 }
