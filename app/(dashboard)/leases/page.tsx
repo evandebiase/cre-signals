@@ -10,7 +10,7 @@ export default async function LeasesPage() {
   const leases = await getAllUpcomingLeases();
 
   return (
-    <div className="px-8 py-8 max-w-4xl">
+    <div className="px-4 sm:px-8 py-6 max-w-4xl mx-auto">
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-2xl font-bold text-slate-100">Lease Expiration Radar</h1>
@@ -30,7 +30,7 @@ export default async function LeasesPage() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         <div className="bg-navy-800 border border-navy-700 rounded-xl p-4">
           <div className="text-slate-500 text-xs mb-1">Total Expirations</div>
           <div className="font-mono text-2xl font-bold text-slate-100">{leases.length}</div>

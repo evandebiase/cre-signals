@@ -23,7 +23,7 @@ export default async function ZipExplorerPage({ params }: Props) {
   ]);
 
   return (
-    <div className="px-8 py-8 max-w-5xl space-y-8">
+    <div className="px-4 sm:px-8 py-6 max-w-5xl mx-auto space-y-6">
       {/* Header */}
       <div className="flex items-center gap-4">
         <div>

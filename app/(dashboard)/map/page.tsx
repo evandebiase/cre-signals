@@ -33,7 +33,7 @@ export default async function MapPage() {
   });
 
   return (
-    <div className="px-8 py-8 max-w-6xl">
+    <div className="px-4 sm:px-8 py-6 max-w-6xl mx-auto">
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-100">Permit Pulse Map</h1>
         <p className="text-slate-500 text-sm mt-1">
