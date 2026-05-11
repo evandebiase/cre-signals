@@ -1,10 +1,7 @@
 import { auth } from '@clerk/nextjs/server';
 import { NextRequest } from 'next/server';
-import Anthropic from '@anthropic-ai/sdk';
-import { MODEL } from '@/lib/ai/claude';
+import { getAnthropic, MODEL } from '@/lib/ai/claude';
 import { getUserWatchlist, getLatestSignalsByZips } from '@/lib/db/queries';
-
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 export async function POST(req: NextRequest) {
   const { userId } = await auth();
@@ -25,7 +22,7 @@ Answer questions with specific data citations. When recommending zips, explain t
 Be direct and quantitative — this user pays for precision, not opinions.
 Signal scores range from 0–100. Score bands: 0–29=Quiet, 30–49=Low, 50–64=Moderate, 65–79=Elevated, 80–100=High.`;
 
-  const stream = await anthropic.messages.stream({
+  const stream = await getAnthropic().messages.stream({
     model: MODEL,
     max_tokens: 2048,
     system: systemPrompt,

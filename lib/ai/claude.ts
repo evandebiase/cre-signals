@@ -1,6 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk';
 
-export const MODEL = 'claude-sonnet-4-20250514';
+export const MODEL = 'claude-3-5-sonnet-20241022';
 
 let _anthropic: Anthropic | null = null;
 export function getAnthropic(): Anthropic {
