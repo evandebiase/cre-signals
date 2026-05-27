@@ -64,6 +64,13 @@ html.light .border-white\/5  { border-color: var(--border) !important; }
 html.light .border-white\/8  { border-color: var(--border) !important; }
 html.light .border-white\/10 { border-color: var(--border) !important; }
 
+/* Opacity variants of navy classes */
+html.light .bg-navy-950\/80 { background-color: rgba(240,244,248,0.85) !important; }
+html.light .bg-navy-950\/90 { background-color: rgba(240,244,248,0.92) !important; }
+
+/* Landing nav */
+html.light .landing-nav { background-color: rgba(240,244,248,0.85); border-color: var(--border); }
+
 html.light .text-slate-100 { color: var(--text-1) !important; }
 html.light .text-slate-200 { color: var(--text-2) !important; }
 html.light .text-slate-300 { color: var(--text-2) !important; }

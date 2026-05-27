@@ -15,19 +15,19 @@ export default async function LandingPage() {
     <div className="min-h-screen bg-navy-950 text-slate-100">
 
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-navy-950/80 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-teal-400/20 flex items-center justify-center">
-              <span className="text-teal-400 text-sm font-bold">C</span>
+      <nav className="landing-nav fixed top-0 left-0 right-0 z-50 bg-navy-950/80 backdrop-blur-md border-b border-navy-800 transition-colors">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-teal-400/20 flex items-center justify-center">
+              <span className="text-teal-400 font-bold text-sm">C</span>
             </div>
-            <span className="font-bold text-slate-100 text-sm tracking-tight">CRE Data</span>
+            <span className="font-bold text-slate-100 tracking-tight">CRE Data</span>
           </div>
-          <div className="flex items-center gap-4">
-            <a href="#features" className="text-slate-400 hover:text-slate-200 text-sm transition-colors hidden sm:inline">Features</a>
-            <a href="#pricing" className="text-slate-400 hover:text-slate-200 text-sm transition-colors hidden sm:inline">Pricing</a>
-            <Link href="/sign-in" className="text-slate-400 hover:text-slate-200 text-sm transition-colors">Sign in</Link>
-            <Link href="/sign-up" className="px-4 py-1.5 bg-teal-400 text-navy-950 font-semibold text-sm rounded-lg hover:bg-teal-300 transition-colors">
+          <div className="flex items-center gap-6">
+            <a href="#features" className="text-slate-400 hover:text-slate-200 text-sm transition-colors hidden sm:inline font-medium">Features</a>
+            <a href="#pricing" className="text-slate-400 hover:text-slate-200 text-sm transition-colors hidden sm:inline font-medium">Pricing</a>
+            <Link href="/sign-in" className="text-slate-400 hover:text-slate-200 text-sm transition-colors font-medium">Sign in</Link>
+            <Link href="/sign-up" className="px-4 py-2 bg-teal-400 text-navy-950 font-bold text-sm rounded-lg hover:bg-teal-300 transition-colors">
               Start free trial
             </Link>
           </div>
@@ -35,29 +35,29 @@ export default async function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto">
+      <section className="pt-36 pb-24 px-6 max-w-6xl mx-auto">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 rounded-full px-3 py-1 text-xs text-teal-400 font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 rounded-full px-3 py-1 text-xs text-teal-400 font-semibold mb-8">
             <div className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
             Live · Updated nightly from public data sources
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-slate-100">
+          <h1 className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight mb-6 text-slate-100">
             Know which markets are{' '}
             <span className="text-teal-400">moving</span>{' '}
             before your competition does
           </h1>
-          <p className="text-slate-400 text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl">
+          <p className="text-slate-400 text-xl leading-relaxed mb-10 max-w-2xl">
             CRE Data scores every zip code across permit velocity, vacancy shifts, and lease expirations — then uses AI to tell you what it means and who should be paying attention.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link href="/sign-up" className="px-6 py-3 bg-teal-400 text-navy-950 font-bold rounded-xl hover:bg-teal-300 transition-colors text-center">
+          <div className="flex flex-col sm:flex-row gap-3 items-start">
+            <Link href="/sign-up" className="px-7 py-3.5 bg-teal-400 text-navy-950 font-bold rounded-xl hover:bg-teal-300 transition-colors text-center text-base">
               Start 7-day free trial
             </Link>
-            <a href="#features" className="px-6 py-3 border border-white/10 text-slate-300 font-medium rounded-xl hover:border-white/20 hover:text-slate-100 transition-colors text-center">
+            <a href="#features" className="px-7 py-3.5 bg-navy-800 border border-navy-700 text-slate-300 font-semibold rounded-xl hover:bg-navy-700 transition-colors text-center text-base">
               See how it works →
             </a>
           </div>
-          <p className="text-slate-600 text-sm mt-4">No credit card required · Cancel anytime</p>
+          <p className="text-slate-600 text-sm mt-5">No credit card required · Cancel anytime</p>
         </div>
       </section>
 
